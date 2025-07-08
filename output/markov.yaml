@@ -1,0 +1,341 @@
+issue_sequence:
+  average_consecutive_commits:
+    '!Issue issue0': 2.0
+    '!Issue issue1': 3.0
+    '!Issue issue2': 5.0
+    '!Issue issue3': 5.0
+    '!Issue issue4': 6.0
+    '!Issue issue5': 11.0
+    '!Issue issue6': 13.0
+    '!Issue issue7': 7.0
+    '!Issue issue8': 5.0
+    '!Issue issue9': 3.0
+transitions:
+  matrix:
+    '!Initial  ':
+    - to: '!Issue issue0'
+      p: 0.06919018317655466
+    - to: '!Issue issue1'
+      p: 0.007443992664743115
+    - to: '!Issue issue2'
+      p: 0.023428983534527364
+    - to: '!Issue issue3'
+      p: 0.11031621958337881
+    - to: '!Issue issue4'
+      p: 0.10092729523897002
+    - to: '!Issue issue5'
+      p: 0.13172503565963764
+    - to: '!Issue issue6'
+      p: 0.12235483550705895
+    - to: '!Issue issue7'
+      p: 0.09241821077354825
+    - to: '!Issue issue8'
+      p: 0.07136713609944084
+    - to: '!Issue issue9'
+      p: 0.2708281077621404
+    '!Issue issue0':
+    - to: '!Module Module4'
+      p: 0.7721
+    - to: '!Module Module5'
+      p: 0.2279
+    '!Issue issue1':
+    - to: '!Module Module4'
+      p: 0.6103
+    - to: '!Module Module5'
+      p: 0.3528
+    - to: '!Module Module0'
+      p: 0.0369
+    '!Issue issue2':
+    - to: '!Module Module4'
+      p: 1.0
+    '!Issue issue3':
+    - to: '!Module Module5'
+      p: 1.0
+    '!Issue issue4':
+    - to: '!Module Module4'
+      p: 1.0
+    '!Issue issue5':
+    - to: '!Module Module5'
+      p: 0.0272
+    - to: '!Module Module0'
+      p: 0.5886
+    - to: '!Module Module3'
+      p: 0.3842
+    '!Issue issue6':
+    - to: '!Module Module4'
+      p: 0.5833
+    - to: '!Module Module1'
+      p: 0.4167
+    '!Issue issue7':
+    - to: '!Module Module0'
+      p: 1.0
+    '!Issue issue8':
+    - to: '!Module Module1'
+      p: 1.0
+    '!Issue issue9':
+    - to: '!Module Module0'
+      p: 1.0
+    '!File file0':
+    - to: '!File file1'
+      p: 0.0354
+    - to: '!File file2'
+      p: 0.0279
+    - to: '!File file3'
+      p: 0.4232
+    - to: '!File file4'
+      p: 0.2105
+    - to: '!File file5'
+      p: 0.1082
+    - to: '!Author Author2'
+      p: 0.1948
+    '!File file1':
+    - to: '!File file0'
+      p: 0.0087
+    - to: '!File file2'
+      p: 0.0657
+    - to: '!File file3'
+      p: 0.3765
+    - to: '!File file4'
+      p: 0.4006
+    - to: '!File file5'
+      p: 0.0778
+    - to: '!Author Author2'
+      p: 0.0707
+    '!File file2':
+    - to: '!File file0'
+      p: 0.1092
+    - to: '!File file1'
+      p: 0.4086
+    - to: '!File file3'
+      p: 0.0721
+    - to: '!File file4'
+      p: 0.1721
+    - to: '!File file5'
+      p: 0.1278
+    - to: '!Author Author2'
+      p: 0.1102
+    '!File file3':
+    - to: '!File file0'
+      p: 0.0678
+    - to: '!File file1'
+      p: 0.009
+    - to: '!File file2'
+      p: 0.3483
+    - to: '!File file4'
+      p: 0.0969
+    - to: '!File file5'
+      p: 0.4322
+    - to: '!Author Author2'
+      p: 0.0458
+    '!File file4':
+    - to: '!File file0'
+      p: 0.224
+    - to: '!File file1'
+      p: 0.0668
+    - to: '!File file2'
+      p: 0.0655
+    - to: '!File file3'
+      p: 0.2505
+    - to: '!File file5'
+      p: 0.2446
+    - to: '!Author Author2'
+      p: 0.1486
+    '!File file5':
+    - to: '!File file0'
+      p: 0.0033
+    - to: '!File file1'
+      p: 0.1322
+    - to: '!File file2'
+      p: 0.4887
+    - to: '!File file3'
+      p: 0.0038
+    - to: '!File file4'
+      p: 0.1247
+    - to: '!Author Author2'
+      p: 0.2473
+    '!File file6':
+    - to: '!File file7'
+      p: 0.059
+    - to: '!File file8'
+      p: 0.669
+    - to: '!File file9'
+      p: 0.1777
+    - to: '!Author Author2'
+      p: 0.0943
+    '!File file7':
+    - to: '!File file6'
+      p: 0.5406
+    - to: '!File file8'
+      p: 0.0106
+    - to: '!File file9'
+      p: 0.2016
+    - to: '!Author Author2'
+      p: 0.2472
+    '!File file8':
+    - to: '!File file6'
+      p: 0.1292
+    - to: '!File file7'
+      p: 0.2049
+    - to: '!File file9'
+      p: 0.4602
+    - to: '!Author Author2'
+      p: 0.2057
+    '!File file9':
+    - to: '!File file6'
+      p: 0.1484
+    - to: '!File file7'
+      p: 0.4713
+    - to: '!File file8'
+      p: 0.3507
+    - to: '!Author Author2'
+      p: 0.0296
+    '!File file10':
+    - to: '!File file11'
+      p: 0.126
+    - to: '!File file12'
+      p: 0.4206
+    - to: '!Author Author1'
+      p: 0.4534
+    '!File file11':
+    - to: '!File file10'
+      p: 0.5588
+    - to: '!File file12'
+      p: 0.1998
+    - to: '!Author Author1'
+      p: 0.2414
+    '!File file12':
+    - to: '!File file10'
+      p: 0.4284
+    - to: '!File file11'
+      p: 0.2341
+    - to: '!Author Author1'
+      p: 0.3375
+    '!File file13':
+    - to: '!File file14'
+      p: 0.1108
+    - to: '!File file15'
+      p: 0.3037
+    - to: '!File file16'
+      p: 0.0263
+    - to: '!File file17'
+      p: 0.287
+    - to: '!File file18'
+      p: 0.0451
+    - to: '!File file19'
+      p: 0.0615
+    - to: '!Author Author2'
+      p: 0.1656
+    '!File file14':
+    - to: '!File file13'
+      p: 0.3493
+    - to: '!File file15'
+      p: 0.0999
+    - to: '!File file16'
+      p: 0.243
+    - to: '!File file17'
+      p: 0.0144
+    - to: '!File file18'
+      p: 0.0099
+    - to: '!File file19'
+      p: 0.2293
+    - to: '!Author Author2'
+      p: 0.0542
+    '!File file15':
+    - to: '!File file13'
+      p: 0.0032
+    - to: '!File file14'
+      p: 0.0732
+    - to: '!File file16'
+      p: 0.2671
+    - to: '!File file17'
+      p: 0.2987
+    - to: '!File file18'
+      p: 0.1767
+    - to: '!File file19'
+      p: 0.0594
+    - to: '!Author Author2'
+      p: 0.1217
+    '!File file16':
+    - to: '!File file13'
+      p: 0.1866
+    - to: '!File file14'
+      p: 0.0696
+    - to: '!File file15'
+      p: 0.0804
+    - to: '!File file17'
+      p: 0.2361
+    - to: '!File file18'
+      p: 0.1398
+    - to: '!File file19'
+      p: 0.1823
+    - to: '!Author Author2'
+      p: 0.1052
+    '!File file17':
+    - to: '!File file13'
+      p: 0.0274
+    - to: '!File file14'
+      p: 0.5237
+    - to: '!File file15'
+      p: 0.0636
+    - to: '!File file16'
+      p: 0.0292
+    - to: '!File file18'
+      p: 0.2741
+    - to: '!File file19'
+      p: 0.0043
+    - to: '!Author Author2'
+      p: 0.0777
+    '!File file18':
+    - to: '!File file13'
+      p: 0.2226
+    - to: '!File file14'
+      p: 0.0152
+    - to: '!File file15'
+      p: 0.2749
+    - to: '!File file16'
+      p: 0.2936
+    - to: '!File file17'
+      p: 0.1082
+    - to: '!File file19'
+      p: 0.0607
+    - to: '!Author Author2'
+      p: 0.0248
+    '!File file19':
+    - to: '!File file13'
+      p: 0.2937
+    - to: '!File file14'
+      p: 0.3219
+    - to: '!File file15'
+      p: 0.0652
+    - to: '!File file16'
+      p: 0.1808
+    - to: '!File file17'
+      p: 0.0845
+    - to: '!File file18'
+      p: 0.0061
+    - to: '!Author Author2'
+      p: 0.0478
+    '!Module Module0':
+    - to: '!File file0'
+      p: 1.0
+    '!Module Module1':
+    - to: '!File file5'
+      p: 1.0
+    '!Module Module2':
+    - to: '!File file3'
+      p: 1.0
+    '!Module Module3':
+    - to: '!File file4'
+      p: 1.0
+    '!Module Module4':
+    - to: '!File file4'
+      p: 1.0
+    '!Module Module5':
+    - to: '!File file1'
+      p: 1.0
+    '!Author Author2':
+    - to: '!Commit '
+      p: 1.0
+    '!Author Author1':
+    - to: '!Commit '
+      p: 1.0

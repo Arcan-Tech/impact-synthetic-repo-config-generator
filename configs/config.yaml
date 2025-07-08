@@ -1,0 +1,61 @@
+Files:
+  FileGroup0:
+    FileNames:
+      - file0
+      - file1
+      - file2
+      - file3
+      - file4
+      - file5
+    p: 0.9
+  FileGroup1:
+    FileNames:
+      - file6
+      - file7
+      - file8
+      - file9
+    p: 0.9
+  FileGroup2:
+    FileNames:
+      - file10
+      - file11
+      - file12
+    p: 0.9
+  FileGroup3:
+    FileNames:
+      - file13
+      - file14
+      - file15
+      - file16
+      - file17
+      - file18
+      - file19
+    p: 0.9
+
+Modules:
+  - 0:
+      id: Module0
+      lambda: 8
+  - 1:
+      id: Module1
+      lambda: 2
+  - 2:
+      id: Module2
+      lambda: 3
+  - 3:
+      id: Module3
+      lambda: 6
+  - 4:
+      id: Module4
+      lambda: 2
+  - 5:
+      id: Module5
+      lambda: 4
+
+Authors:
+  - Author1
+  - Author2
+
+Issues:
+  prefix: "issue"
+  number: 10
