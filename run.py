@@ -27,8 +27,8 @@ def main(args):
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description="Impact synthetic repo-generator config generator.")
-    parser.add_argument("-i", type=str, help=f"path to input configuration yaml file. Default {PATH_TO_CONFIG}", default=PATH_TO_CONFIG)
-    parser.add_argument("-o", type=str, help=f"path to output generator config file. Default {PATH_TO_MARKOV}", default=PATH_TO_MARKOV)
+    parser.add_argument("-i", "--input", type=str, help=f"path to input configuration yaml file. Default {PATH_TO_CONFIG}", default=PATH_TO_CONFIG)
+    parser.add_argument("-o", "--output", type=str, help=f"path to output generator config file. Default {PATH_TO_MARKOV}", default=PATH_TO_MARKOV)
     parser.add_argument("--tmp", type=str, help=f"path to tmp directory. Default {TMP_DIR}", default=TMP_DIR)
     parser.add_argument("--seed", type=int, help="seed", default=None)
     
