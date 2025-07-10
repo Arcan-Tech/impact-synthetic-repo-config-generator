@@ -1,27 +1,35 @@
 import logging
-import sys
+import argparse
 import os
+from pathlib import Path
 import yaml
 from src.generator import *
 
-path_to_config = "./configs/config.yaml"
-path_to_markov = "./output/markov.yaml"
+TMP_DIR = "tmp"
+PATH_TO_CONFIG = "./configs/config.yaml"
+PATH_TO_MARKOV = "./output/markov.yaml"
+SEED = 42
 
-def main():
+def main(args):
 
-    # TODO: argparser
-
-    if not os.path.isdir(os.path.join(os.getcwd(), "tmp")):
-        os.mkdir(os.path.join(os.getcwd(), "tmp"))
+    if not os.path.isdir(Path(args.tmp)):
+        os.mkdir(Path(args.tmp))
     
-    x, y, z = generate_data(path_to_config)
-    assert ((x.iloc[:,:-2].sum(axis=1) + x.iloc[:,-1]) == 1).all, "files transitions do not sum up to 1!"
+    path_to_output = Path(args.output)
+    out_dir = path_to_output.parent
+    if not os.path.isdir(out_dir):
+        os.mkdirs(out_dir)
 
-    markov = generate_markov(x, y, z)
+    markov_config = generate_markov(Path(args.input), seed=args.seed)
 
-    with open(path_to_markov, "w") as f:
-        yaml.dump(markov, f, sort_keys=False)
-
+    with open(path_to_output, 'w') as f:
+        f.write(yaml.dump(markov_config, sort_keys=False).replace("'", ""))
 
 if __name__=="__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Impact synthetic repo-generator config generator.")
+    parser.add_argument("-i", type=str, help=f"path to input configuration yaml file. Default {PATH_TO_CONFIG}", default=PATH_TO_CONFIG)
+    parser.add_argument("-o", type=str, help=f"path to output generator config file. Default {PATH_TO_MARKOV}", default=PATH_TO_MARKOV)
+    parser.add_argument("--tmp", type=str, help=f"path to tmp directory. Default {TMP_DIR}", default=TMP_DIR)
+    parser.add_argument("--seed", type=int, help="seed", default=None)
+    
+    main(parser.parse_args())
