@@ -1,26 +1,26 @@
 Files:
   prefix: File
-  number: 4000
+  number: 6000
   filegroups:
     number: 500
-    lenght: 7
+    lenght: 5
     random: true
-    p: 0.93
+    p: 0.97
 
 Modules:
   prefix: Module
-  number: 50
-  lambda: 12
+  number: 200
+  lambda: 50
   random: true
 
 Authors:
   prefix: Author
-  number: 6
+  number: 10
   contribution: random
 
 Issues:
   prefix: issue
-  number: 150
+  number: 500
   n_modules: 2
-  lambda: 10
+  lambda: 5
   random: true
