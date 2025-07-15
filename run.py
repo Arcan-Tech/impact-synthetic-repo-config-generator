@@ -13,7 +13,7 @@ SEED = 42
 def main(args):
 
     if not os.path.isdir(Path(TMP_DIR)):
-        os.mkdir(Path(args.tmp))
+        os.mkdir(Path(TMP_DIR))
     
     path_to_output = Path(args.output)
     out_dir = path_to_output.parent

@@ -159,30 +159,30 @@ def generate_file_matrix(files:dict, repo:dict, authors:list) -> Tuple[
             assert p > .0, "p must be > 0"
             assert p < 1., "p must be < 1"
             q = 1 - p
-            # file group dependancy matrix
-            a = np.empty(n_files)
-            a.fill(0.001)
-            idxs = [all_files.index(file) for file in group_files]
-            a[idxs] = p
-            A = np.random.dirichlet(a, n)
-            FileMatrix[m:m+n, m:m+n] = A[:, m:m+n]      # modified from FileMatrix[m:m+n, m:m+n] = np.round(np.random.dirichlet(a, n)[:, m:m+n], 4)
-            m += n
-            authors_by_name.extend([str(np.random.choice(all_authors, p=authors_sampling_p))]*n)
+            x = [q/n]*n
+            while True:
+                A = np.random.dirichlet(np.ones(n), n) - x
+                if (A > 0.).all():
+                    FileMatrix[m:m+n, m:m+n] = A
+                    m += n
+                    authors_by_name.extend([str(np.random.choice(all_authors, p=authors_sampling_p))]*n)
+                    authors_transition.extend([q]*n)
+                    break
         else:
-            a = np.empty(n_files)
-            a.fill(0.9)
-            A = np.random.dirichlet(a, n)
-            FileMatrix[m:m+n, m:m+n] = A[:, m:m+n]
+            x = [0.05/n]*n
+            A = np.random.dirichlet(np.ones(n), n) - x
+            A[A < 0] = 0.0
+            FileMatrix[m:m+n, m:m+n] = A
             m += n
             authors_by_name.extend([str(np.random.choice(all_authors, p=authors_sampling_p)) for _ in range(n)])
+            _ = [authors_transition.extend([1 - A[i].sum()]) for i in range(n)]
+
 
     assert len(authors_by_name) == n_files
     assert m == n_files
 
-    for i in range(n_files):
-        authors_transition.append(1 - FileMatrix[i,:].sum())                    # generate the 
-        assert authors_transition[-1] > 0
-        assert np.round(FileMatrix[i,:].sum() + authors_transition[-1], OUTPUT_ROUNDING) == 1 # the sum of all the transition probabilities must sum up to 1
+    for i in range(n_files):              # generate the 
+        assert np.round(FileMatrix[i,:].sum() + authors_transition[i], OUTPUT_ROUNDING) == 1 # the sum of all the transition probabilities must sum up to 1
     
     filematrix = pd.DataFrame(FileMatrix, columns=all_files, index=all_files)
     fileauthors = pd.DataFrame(
